@@ -55,10 +55,8 @@ var whichDirection = function(){
                         room_id = descr.id;
                         whichbackground="bg" + descr.id;
                         color_map = map_description[descr.id];
-                        player.my_fucking_x = setPlayerSpawn("left");
-                        player.my_fucking_y = color_map.start_positionY;
-                        console.log("left");
-                        player.my_fucking_x = setPlayerSpawn("left");
+                        player.my_fucking_x = descr.x;
+                        player.my_fucking_y = descr.y;
                     }
                     break;
                 }
@@ -74,9 +72,9 @@ var whichDirection = function(){
                         room_id = descr.id;
                         whichbackground="bg" + descr.id;
                         color_map = map_description[descr.id];
-                        player.my_fucking_y = color_map.start_positionY;
-                        console.log("right")
-                        player.my_fucking_x = setPlayerSpawn("right");
+                        player.my_fucking_x = descr.x;
+                        player.my_fucking_y = descr.y;
+
                     }
                     break;
                 }
@@ -90,10 +88,8 @@ var whichDirection = function(){
                         room_id = descr.id;
                         whichbackground="bg" + descr.id;
                         color_map = map_description[descr.id];
-                        player.my_fucking_x = color_map.start_positionX;
-                        console.log("down")
-                        player.my_fucking_y = setPlayerSpawn("down");
-
+                        player.my_fucking_x = descr.x;
+                        player.my_fucking_y = descr.y;
                     }        
                     break;  	
                 }
@@ -108,9 +104,8 @@ var whichDirection = function(){
                         room_id = descr.id;
                         whichbackground="bg" + descr.id;
                         color_map = map_description[descr.id];
-                        player.my_fucking_x = color_map.start_positionX;
-                        console.log("up")
-                        player.my_fucking_y = setPlayerSpawn("up");
+                        player.my_fucking_x = descr.x;
+                        player.my_fucking_y = descr.y;
 
                     }
                     break;
@@ -153,18 +148,6 @@ function getDescription(color)
 	}
 	
 	return {text:""};
-}
-function tryToChangeRoom(color)
-{
-    if(color == 0xff0000)
-    {
-        mapScreen = mapScreen1;
-        bg=document.getElementById("bg1");
-        player.my_fucking_x = 750;
-        player.my_fucking_y = 650;
-        return;
-    }
-
 }
 function setPlayerSpawn(direction){
     if(direction == "right"){

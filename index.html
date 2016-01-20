@@ -8,20 +8,18 @@
                     <img id = "mehplayer" src="player.png"/>
                     <img id = "bg0" src = "screens/img/roomffffff.jpg"/>
                     <img id = "bg1" src = "screens/img/roomff0000.jpg"/>
-                    <img id = "battle" src = "screens/img/battle.jpg"/>
                     <img id = "basicSel" src = "buttons/Basic_Attack.png"/>
                     <img id = "specialSel" src = "buttons/Special_Attack.png"/>
                     <img id = "basicUnsel" src = "buttons/Unpressed_Basic.png"/>
                     <img id = "specialUnsel" src = "buttons/Unpressed_Special.png"/>
                     <img id = "specialDis" src = "buttons/Unpressed_Special_dis.png"/>
                     <img id = "basicDis" src = "buttons/Basic_Attack_dis.png"/>
-                    <img id = "attacking" src = "screens/img/attacked_enemy.jpg" />
                     <img id = "bg2" src = "screens/img/room00ff00.bmp" />
 
             </canvas>
            
             <script>
-			var promqna;
+
 var room_id = 0;
 var canvas = document.getElementById("canvas-id");
 var context = canvas.getContext("2d");
@@ -159,6 +157,7 @@ function init() {
 		<script src="screens/map_legend.js"></script>
 		<script src="game_logic/classes.js"/>
 		<script src="game_logic/logic.js"></script>
+                <script src="modules/battle_screen_module.js"></script>
 		<script src="game.js"></script>
 	</body>
 </html>

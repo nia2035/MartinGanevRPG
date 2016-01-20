@@ -7,8 +7,6 @@ function Player(){
 	this.strength = 5;
 	// states 'normal', 'attacking', 'attacked'
 	this.state = creature_states.WAIT_TO_ATTACK;
-	
-	
 	var health_to_decrease = 0;
 	this.updateHealthBar = function()
 	{
@@ -120,6 +118,10 @@ function Enemy(e_health, e_strength){
 	this.strength=e_strength;
 	// states 'normal', 'attacking', 'attacked'
 	this.state = creature_states.NORMAL;
+        this.wait_image = new Image();
+        this.wait_image.src = "assets/battle/enemy_wait.jpg";
+        this.atacked_image = new Image();
+        this.atacked_image.src = "assets/battle/enemy_attacked.jpg";
 	var health_to_decrease = 0;
 	this.updateHealthBar = function()
 	{
@@ -136,7 +138,14 @@ function Enemy(e_health, e_strength){
 	
 	this.draw = function()
 	{
-		context.fillRect(this.battlex, this.battley, this.health, 10);
+            context.fillRect(this.battlex, this.battley, this.health, 10);
+            if(this.state == creature_states.WAIT_TO_ATTACK){
+                console.log("ebasi vleznah u waita");
+                context.drawImage(this.wait_image, this.battlex, (this.battley +15));
+            }else{
+                console.log("ebasi vleznah u atacka");
+                context.drawImage(this.atacked_image, this.battlex, (this.battley +15));
+            }
 	}
 	
 	this.attack = function(player){
@@ -161,7 +170,7 @@ function GameButton(selbutton, unselbutton, disabledbutton, x, y){
 			}
 			
 			if(mouse_state=="up"){
-				player.attack(enemies[0]);
+				BattleScreenModule.doAttack(player);
 				current_attacker = player;
 				disableButtons();
 				timer_attack=90;
