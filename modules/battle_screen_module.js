@@ -1,7 +1,18 @@
 var BattleScreenModule = (new function(){
+    
     var bg_image = new Image(); 
     bg_image.src = "screens/img/battle.jpg";
     var enemy;
+    
+    
+    
+    
+   this.battleController = function()
+   {
+       this.current_attacker;
+       this.player;
+       this.enemies = [];
+   }
     this.doBattle = function(player, buton, current_attacker)
     {        
         enemy = this.createEnemy();
@@ -37,3 +48,5 @@ var BattleScreenModule = (new function(){
         return new Enemy(100, 5);
     }
 }());
+
+
