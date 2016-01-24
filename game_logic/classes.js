@@ -162,29 +162,32 @@ function GameButton(selbutton, unselbutton, disabledbutton, x, y){
 	var button = unselbutton;
 	this.selected=false;
 	this.disabled = false;
-	this.checkState = function(mouse_state){
+	this.checkState = function(mouse_state){ 
+            console.log(mouseX, mouseY)
 		if(mouseX>=x&&mouseX<=x+button.width&&mouseY>=y&&mouseY<=y+button.height){
+                   
 			if(this.disabled){
 				button = disabledbutton;
 				return;
 			}
 			
 			if(mouse_state=="up"){
-				BattleScreenModule.doAttack(player);
 				current_attacker = player;
 				disableButtons();
 				timer_attack=90;
 				attacking_timer=30;
+                                BattleScreenModule.doAttack(player);
+                                console.log("mouse up");
 			}
 			button = selbutton;
+                        console.log("selected button");
 		}else{
+                    console.log("unselected button");
 			button = unselbutton;
 		}
 		
 	}
 	this.drawButton = function(){
-		context.drawImage(button, x, y);
-
-
+            context.drawImage(button, x, y);
 	}
 }
