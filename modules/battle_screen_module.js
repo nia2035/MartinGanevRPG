@@ -13,10 +13,11 @@ var BattleScreenModule = (new function(){
        this.player;
        this.enemies = [];
    }
-    this.doBattle = function(player, buton, current_attacker)
+    this.doBattle = function(player, buton, special_buton,current_attacker)
     {        
         enemy = this.createEnemy();
         buton.checkState("over");
+        console.log("checkstate na buton")
         special_buton.checkState("over");
         if(enemy.state == creature_states.WAIT_TO_ATTACK){
             enemy.attack(player);

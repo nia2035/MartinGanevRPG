@@ -23,17 +23,17 @@ function update() {
 	player.move();
         whichDirection();        
 	//console.log(player.strength)
-	if(isKeyPressed[32]==1){
-		enemies[0].health-=2;
-	}
 	if(en_timer <= 0 && state == states.ADVENTURE && player.is_moving||isKeyPressed[90]==1){
 		if(Math.random()<=0.001||isKeyPressed[90]==1){
 			state = states.BATTLE;
-                        BattleScreenModule.doBattle(player, buton, current_attacker);
+                       
 		}
 	}else{
 		en_timer--;	
 	}
+        if(state == states.BATTLE){
+             BattleScreenModule.doBattle(player, buton, special_buton, current_attacker);
+        }
 }
 function draw() {
 	// This is how you draw a rectangle
